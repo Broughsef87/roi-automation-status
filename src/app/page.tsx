@@ -24,13 +24,13 @@ interface StatusData {
 }
 
 const WORKFLOW_LABELS: Record<string, { label: string; description: string }> = {
-  "ROI — 1. Salesperson Pay Trigger":                        { label: "Salesperson Pay",          description: "Emails salesperson when commission is recorded" },
-  "ROI — 2. Tentative Delivery Date Notification":           { label: "Tentative Delivery",        description: "Notifies customer when estimated ship date is set" },
-  "ROI — 3. Confirmed Delivery Date Notification":           { label: "Confirmed Delivery",        description: "Sends confirmation when delivery date is locked" },
-  "ROI — 4. Contract Signed → Accounting + Payment Kickoff": { label: "Contract Signed",           description: "Alerts accounting and kicks off payment schedule" },
-  "ROI — 5. Payment Schedule Automation":                    { label: "Payment Schedule",          description: "Sends 30% deposit invoice, then 70% balance 2 wks out" },
-  "ROI — 6. Ship Notice":                                    { label: "Ship Notice",               description: "Notifies customer when building has shipped" },
-  "ROI — 7. Excel Poller (SharePoint)":                      { label: "SharePoint Watcher",        description: "Polls payment sheet every 15 min and triggers workflows" },
+  "ROI ◆ 1. Salesperson Pay Trigger":                        { label: "Salesperson Pay",          description: "Emails salesperson when commission is recorded" },
+  "ROI ◆ 2. Tentative Delivery Date Notification":           { label: "Tentative Delivery",        description: "Notifies customer when estimated ship date is set" },
+  "ROI ◆ 3. Confirmed Delivery Date Notification":           { label: "Confirmed Delivery",        description: "Sends confirmation when delivery date is locked" },
+  "ROI ◆ 4. Contract Signed → Accounting + Payment Kickoff": { label: "Contract Signed",           description: "Alerts accounting and kicks off payment schedule" },
+  "ROI ◆ 5. Payment Schedule Automation":                    { label: "Payment Schedule",          description: "Sends 30% deposit invoice, then 70% balance 2 wks out" },
+  "ROI ◆ 6. Ship Notice":                                    { label: "Ship Notice",               description: "Notifies customer when building has shipped" },
+  "ROI ◆ 7. Excel Poller (SharePoint)":                      { label: "SharePoint Watcher",        description: "Polls payment sheet every 15 min and triggers workflows" },
 };
 
 function statusColor(status: LastRun["status"] | undefined, active: boolean): string {
@@ -78,7 +78,7 @@ function duration(run: LastRun | null): string {
 }
 
 function WorkflowCard({ wf }: { wf: Workflow }) {
-  const meta  = WORKFLOW_LABELS[wf.name] ?? { label: wf.name.replace(/^ROI — \d+\. /, ""), description: "" };
+  const meta  = WORKFLOW_LABELS[wf.name] ?? { label: wf.name.replace(/^ROI .+?\d+\. /, ""), description: "" };
   const color  = statusColor(wf.lastRun?.status, wf.active);
   const label  = statusLabel(wf.lastRun, wf.active);
   const dur    = duration(wf.lastRun);

@@ -46,7 +46,7 @@ export async function GET() {
 
     const wfData = await wfRes.json();
     const allWorkflows: N8NWorkflow[] = wfData.data || [];
-    const roiWorkflows = allWorkflows.filter((w) => w.name.startsWith("ROI —"));
+    const roiWorkflows = allWorkflows.filter((w) => w.name.startsWith("ROI "));
 
     const results = await Promise.all(
       roiWorkflows.map(async (wf) => {
@@ -84,8 +84,8 @@ export async function GET() {
 
     // Sort by the workflow number in the name (ROI — 1., ROI — 2., etc.)
     results.sort((a, b) => {
-      const numA = parseInt(a.name.match(/ROI — (\d+)\./)?.[1] ?? "99");
-      const numB = parseInt(b.name.match(/ROI — (\d+)\./)?.[1] ?? "99");
+      const numA = parseInt(a.name.match(/ROI .+?(\d+)\./)?.[1] ?? "99");
+      const numB = parseInt(b.name.match(/ROI .+?(\d+)\./)?.[1] ?? "99");
       return numA - numB;
     });
 
