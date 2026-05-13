@@ -4,8 +4,9 @@ const N8N_BASE = process.env.N8N_BASE_URL || "http://localhost:5679";
 const N8N_KEY  = process.env.N8N_API_KEY  || "";
 
 const HEADERS = {
-  "X-N8N-API-KEY": N8N_KEY,
-  "Content-Type":  "application/json",
+  "X-N8N-API-KEY":               N8N_KEY,
+  "Content-Type":                "application/json",
+  "ngrok-skip-browser-warning":  "true",
 };
 
 export const revalidate = 0;
