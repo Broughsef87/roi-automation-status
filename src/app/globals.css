@@ -1,19 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --roi-bg:        #0a0c10;
-  --roi-surface:   #111318;
-  --roi-card:      #161b22;
-  --roi-border:    #21262d;
-  --roi-border-hi: #30363d;
-  --roi-red:       #E40C19;
-  --roi-red-dim:   rgba(228, 12, 25, 0.12);
-  --roi-red-glow:  rgba(228, 12, 25, 0.20);
+  /* ROI Metal Buildings — official brand palette */
+  --roi-red:       #DC1E1E;
+  --roi-red-dark:  #961E1E;
+  --roi-charcoal:  #3C2828;
+  --roi-red-dim:   rgba(220, 30, 30, 0.12);
+  --roi-red-glow:  rgba(220, 30, 30, 0.22);
+
+  /* Dashboard surfaces */
+  --roi-bg:        #0d0e0e;
+  --roi-surface:   #111212;
+  --roi-card:      #181919;
+  --roi-border:    #2a2020;
+  --roi-border-hi: #3d2c2c;
+
+  /* Status signals */
   --roi-green:     #22c55e;
   --roi-amber:     #f59e0b;
-  --roi-text:      #e6edf3;
-  --roi-muted:     #8b949e;
-  --roi-subtle:    #30363d;
+
+  /* Text */
+  --roi-text:      #f0eded;
+  --roi-muted:     #8a7e7e;
+  --roi-subtle:    #3d2c2c;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

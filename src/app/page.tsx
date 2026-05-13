@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
 interface LastRun {
@@ -210,7 +211,7 @@ export default function StatusPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
 
       {/* Top accent line */}
-      <div style={{ height: "3px", background: "linear-gradient(90deg, var(--roi-red) 0%, #ff4d57 50%, var(--roi-red) 100%)" }} />
+      <div style={{ height: "4px", background: "linear-gradient(90deg, var(--roi-red-dark) 0%, var(--roi-red) 40%, var(--roi-red) 60%, var(--roi-red-dark) 100%)" }} />
 
       {/* Header */}
       <header style={{
@@ -221,17 +222,15 @@ export default function StatusPage() {
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "4px" }}>
-                <div style={{
-                  width: "28px", height: "28px", borderRadius: "4px",
-                  background: "var(--roi-red)", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: "14px", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", flexShrink: 0,
-                }}>R</div>
-                <span style={{ fontSize: "18px", fontWeight: 700, color: "var(--roi-text)", letterSpacing: "-0.02em" }}>
-                  ROI Metal Buildings
-                </span>
-              </div>
-              <div style={{ fontSize: "13px", color: "var(--roi-muted)", paddingLeft: "38px" }}>
+              <Image
+                src="/logo.png"
+                alt="ROI Metal Buildings"
+                width={220}
+                height={46}
+                style={{ display: "block", marginBottom: "6px" }}
+                priority
+              />
+              <div style={{ fontSize: "13px", color: "var(--roi-muted)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
                 Automation Status Dashboard
               </div>
             </div>
